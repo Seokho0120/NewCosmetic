@@ -1,40 +1,41 @@
 import React from 'react';
+// import Main from '../src/pages/Main';
 import './App.css';
 import styled from 'styled-components';
-import Main from '../src/pages/Main';
 import { ThemeProvider } from 'styled-components';
-// import { theme } from './pages/assets/styles/theme';
+import theme from './pages/assets/styles/theme';
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  ${({ theme }) => theme.common.flexCenterColumn}
+`;
+
+const Title = styled.h1`
+  font-size: ${({ theme }) => theme.fontSizes.title};
+  color: ${({ theme }) => theme.colors.grey};
+`;
+
+const SubTitle = styled.h2`
+  font-size: ${({ theme }) => theme.fontSizes.subtitle};
+  color: ${({ theme }) => theme.colors.green};
+`;
+
+const Paragraph = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.paragraph};
+`;
 
 export default function App() {
   return (
     <>
       {/* <Main /> */}
-      <div>
-        <Button>Test 1</Button>
-        <ThemeProvider theme={theme}>
-          <Button>Test 2</Button>
-        </ThemeProvider>
-      </div>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Title>Hello</Title>
+          <SubTitle>World!</SubTitle>
+          <Paragraph>ThemeProvider 사용법</Paragraph>
+        </Container>
+      </ThemeProvider>
     </>
   );
 }
-
-const Button = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
-
-  color: ${(props) => props.theme.main};
-  border: 2px solid ${(props) => props.theme.main};
-`;
-
-Button.defaultProps = {
-  theme: {
-    main: 'palevioletred',
-  },
-};
-
-const theme = {
-  main: 'mediumseagreen',
-};
