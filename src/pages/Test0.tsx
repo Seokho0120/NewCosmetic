@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increase, decrease } from '../redux/counter';
-import styled from 'styled-components';
+import { produncActions } from '../redux/counter';
 
 // interface Iprops {
 //   onClick: () => void
@@ -14,12 +14,14 @@ export default function Test0() {
   const dispatch = useDispatch();
 
   const onIncrease = () => {
-    dispatch(increase());
+    dispatch(produncActions.getIncrease(0));
+    // dispatch(increase());
     // setCount((prev: any) => prev + 1);
   };
 
   const onDecrease = () => {
-    dispatch(decrease());
+    dispatch(produncActions.getDecrease(0));
+    // dispatch(decrease());
     // setCount((prev: any) => prev - 1);
   };
 
